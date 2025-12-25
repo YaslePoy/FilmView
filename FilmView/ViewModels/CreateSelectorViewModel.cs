@@ -24,4 +24,10 @@ public class CreateSelectorViewModel : ViewModelBase, IRoutableViewModel
     {
         HostScreen.Router.Navigate.Execute(new SeriesViewModel(HostScreen, new TVShow()));
     }));
+
+    public ICommand Back => ReactiveCommand.Create((() =>
+            {
+                HostScreen.Router.NavigateBack.Execute();
+            }
+        ));
 }

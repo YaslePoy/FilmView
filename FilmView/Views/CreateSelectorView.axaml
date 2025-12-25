@@ -6,12 +6,13 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="FilmView.Views.CreateSelectorView"
              x:DataType="viewModels:CreateSelectorViewModel">
-    <Grid ColumnDefinitions="* *">
-        <Button Margin="50" Background="Chocolate" Command="{Binding GotoFilm}" HorizontalAlignment="Stretch"
+    <Grid ColumnDefinitions="* *" RowDefinitions="Auto *">
+        <HyperlinkButton Command="{Binding Back}">Назад</HyperlinkButton>
+        <Button Grid.Row="1" Margin="50" Background="Chocolate" Command="{Binding GotoFilm}" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <TextBlock Foreground="White" FontSize="50">Фильм</TextBlock>
         </Button>
-        <Button Background="DarkCyan" Grid.Column="1" Margin="50" Command="{Binding GotoShow}"
+        <Button Grid.Row="1" Background="DarkCyan" Grid.Column="1" Margin="50" Command="{Binding GotoShow}"
                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center"
                 HorizontalContentAlignment="Center">
             <TextBlock Foreground="White" FontSize="50">Сериал</TextBlock>
