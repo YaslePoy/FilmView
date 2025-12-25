@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:FilmView.ViewModels"
+             xmlns:avalonia="clr-namespace:LibVLCSharp.Avalonia;assembly=LibVLCSharp.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="FilmView.Views.FilmView"
+             x:DataType="viewModels:FilmViewModel" Name="Control">
+    <Grid RowDefinitions="Auto *" Focusable="True" Margin="10" Background="Transparent">
+        <Grid.KeyBindings>
+            <KeyBinding Gesture="Space" Command="{Binding Play, Mode=OneWay}"/>
+            <KeyBinding Gesture="F" Command="{Binding #Control.Full, Mode=OneWay}"></KeyBinding>
+        </Grid.KeyBindings>
+        <Button Name="Back"  Command="{Binding Back}">Назад</Button>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel HorizontalAlignment="Stretch" Spacing="10">
+                <TextBlock>Название</TextBlock>
+                <TextBox HorizontalAlignment="Left" Width="600" Text="{Binding Film.Title}"></TextBox>
+                <TextBlock>Описание</TextBlock>
+                <TextBox HorizontalAlignment="Left" Width="600" Height="200" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding Film.Description}"></TextBox>
+                <TextBlock>Дата выхода</TextBlock>
+                <DatePicker SelectedDate="{Binding ReleaseDate}"></DatePicker>
+                <Panel Height="500" Width="888" Name="PlayerHost">
+                    <avalonia:VideoView Focusable="True" Name="VideoPlayer" MediaPlayer="{Binding Player}" />
+                </Panel>
+                <Button Command="{Binding Load}">Загрузить видео</Button>
+                <Button Command="{Binding Save}">Сохранить</Button>
+            </StackPanel>
+        </ScrollViewer>
+        <Panel Grid.RowSpan="2" Name="FullPlayerHost" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Panel>
+    </Grid>
+</UserControl>

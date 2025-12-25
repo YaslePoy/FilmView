@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FilmApi/FilmApi.csproj" />
+  <Project Path="FilmView/FilmView.csproj" />
+</Solution>

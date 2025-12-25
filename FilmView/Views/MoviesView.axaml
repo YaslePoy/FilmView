@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:FilmView.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="FilmView.Views.MoviesView"
+             x:DataType="viewModels:MoviesViewModel">
+    <Grid RowDefinitions="* Auto" Margin="10">
+        <WrapPanel Margin="10" ItemsAlignment="Center" FlowDirection="LeftToRight" Orientation="Horizontal"
+                   ItemSpacing="10" LineSpacing="20" Name="ContentPanel">
+        </WrapPanel>
+
+        <Button Grid.Row="1" Command="{Binding Create}">+</Button>
+    </Grid>
+</UserControl>

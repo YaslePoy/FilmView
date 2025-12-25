@@ -1,0 +1,26 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:FilmView.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalonia="http://reactiveui.net"
+        xmlns:filmView="clr-namespace:FilmView"
+
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="FilmView.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="FilmView" Name="Window">
+
+    <Grid RowDefinitions="Auto,*"> 
+        <Border Name="FVLogo" Padding="20" Margin="20" HorizontalAlignment="Center" Background="Chocolate" VerticalAlignment="Center" CornerRadius="15">
+            <TextBlock FontSize="24" Foreground="White" >FilmView</TextBlock>
+        </Border>
+
+        <avalonia:RoutedViewHost Grid.Row="1" Router="{Binding Router}">
+            <avalonia:RoutedViewHost.ViewLocator>
+                <filmView:ViewLocatorForRUI />
+            </avalonia:RoutedViewHost.ViewLocator>
+        </avalonia:RoutedViewHost>
+    </Grid>
+</Window>

@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:FilmView.ViewModels"
+             mc:Ignorable="d" Width="150" Height="240"
+             x:Class="FilmView.Views.ContentCardView"
+             x:DataType="viewModels:ContentCardViewModel">
+    <Border CornerRadius="7" BorderBrush="LightCyan" BorderThickness="3" ClipToBounds="True" Padding="3"  Tapped="InputElement_OnDoubleTapped" Background="Transparent">
+        <Panel>
+            <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Image>
+            <Border HorizontalAlignment="Right" VerticalAlignment="Top" BorderThickness="2" Margin="2" Padding="2"
+                    Background="{Binding TypeColor}" CornerRadius="2">
+                <TextBlock Text="{Binding Type}"></TextBlock>
+            </Border>
+            
+            <TextBlock HorizontalAlignment="Stretch" TextAlignment="Center" VerticalAlignment="Center" FontSize="24" TextWrapping="Wrap" Text="{Binding Name}"></TextBlock>
+        </Panel>
+    </Border>
+</UserControl>
